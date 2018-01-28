@@ -34,21 +34,26 @@ function getRandomInt(max) {
 //On génère la carte
 function initTab(tailleCarte, nbBombes) {
     //On créé un tableau a deux dimensions de taille n
-    var grille = [][];    
-    //ICI JE SUIS BLOQUE A LA CREATION DU TABLEAU BI-DIMENSION /!\/!\/!\/!\    
-    for (var iAbs; iAbs < tailleCarte; iAbs++) {
-        for (var iOrd; iOrd < tailleCarte; iOrd++) {
-            var nouvCase = Object.create(Case);
-            grille[iAbs][iOrd] = nouvCase;
-        }
+    var grille = [];
+    var colonne = [];
+    
+    for (var i = 0; i < tailleCarte; i++) {
+        colonne[i] = Object.create(Case);
     }
     
+    for (var i = 0; i < tailleCarte; i++) {
+        grille.push(colonne);
+    }
+    
+    console.log(grille[0][0].nbBombes)
+    console.log(grille[4][0].nbBombes)
+    console.log(grille[0][2].nbBombes)
+    console.log(grille[5][4].nbBombes)
+    
     var iBombes = nbBombes;
-    while (iBombes > 0) {
+    /*while (iBombes > 0) {
         var randAbs = getRandomInt(tailleCarte -1);
         var randOrd = getRandomInt(tailleCarte -1);
-        
-        console.log(randAbs);
     
         if (grille[randAbs][randOrd].nbBombes != -1){ 
             grille[randAbs][randOrd].element ="rien";
@@ -61,7 +66,7 @@ function initTab(tailleCarte, nbBombes) {
         for (var iOrd; iOrd < tailleCarte; iOrd++) {
             console.log(grille[iAbs][iOrd].nbBombes);
         }
-    }
+    }*/
 
 };
 
