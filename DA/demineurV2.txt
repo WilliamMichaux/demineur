@@ -1,0 +1,102 @@
+// A créer : 
+// ---------
+// carte n* : case 
+
+// Case : nbBombesVoisines (-1 si une bombe est sur la case)
+//      : flag (bool)
+// n = tailleCarte²
+ 
+// La carte est un simple tableau mais utlisé comme un double [EX 5x5] : 
+// 00 01 02 03 04  
+// 10 11 12 13 14  
+// 20 21 22 23 24 
+// 30 31 32 33 34 
+// 40 41 42 43 44
+
+// "document" est un élement du DOM qui affiche la case
+
+---* Démineur
+Obtenir difficulté
+// Définition des paramètres de la partie
+if (difficulté = "facile")
+tailleCarte = 100
+nbBombes = 10
+else if (difficulté = "moyen")
+tailleCarte = 225
+nbBombes = 50
+else
+tailleCarte = 400
+nbBombes = 100
+endif
+module(initCarte;tailleCarte, nbBombes, carte;carte)
+Obtenir clic, caseClic
+if (clic = rightClic)
+// Ajout d'un drapeau si l'utilisateur fait un clic droit
+carte[caseClic].flag = true
+else if (clic = leftClic)
+if (carte[caseClic].flag)
+// Si on clique sur un drapeau, on l'enlève
+carte[caseClic].flag = false
+else if (carte[caseClic].nbBombesVoisines = -1)
+// Si on tombe sur une bombe, on affiche toute la carte
+iCase = 0
+do while (iCase < tailleCarte)
+document.carte[iCase] = visible
+iCase++
+enddo
+else
+module(afficheCase0;carte, caseClic)
+endif
+endif
+------
+
+---* initCarte
+module(initCarte;tailleCarte, nbBombes, carte;carte)
+iBomb = 0
+do while (iBomb <= nbBombes)
+module(getRandInt;;randInt)
+if (carte[randInt].nbBombesVoisines = 0)
+carte[randInt].nbBombesVoisines = -1
+carte[iCase].flag = false
+iBomb++
+endif
+enddo
+iCase = 0
+do while (iCase < tailleCarte)
+if (carte[iCase].nbBombesvoisines = 0)
+module(compteNbBombes;carte,iCase;nbBombesVoisines)
+carte[iCase].nbBombesVoisines = nbBombesVoisines
+carte[iCase].flag = false
+endif
+iCase++
+enddo
+------
+
+---* compteNbBombes
+module(compteNbBombes;carte,iCase;nbBombes)
+nbBombes = 0
+caseVoisines = [iCase-1, iCase+1, iCase+10, iCase-10, iCase+11, iCase+9,iCase-11, iCase-9]
+iVois
+do while (ivois < 8)
+if (carte[iVois].nbBombesVoisines = -1)
+nbBombes++
+endif
+iVois
+enddo
+------
+
+---* afficheCase0
+module(afficheCase0;carte, case)
+document.carte[case] = visible
+casesVisées = [case+1, case-1, case+10,case-10]
+iCase = 0
+do while (iCase < 4)
+if (carte[iCase].nbBombesVoisines = 0)
+module(afficheCase0;carte, iCase)
+endif
+iCase++
+enddo
+------
+
+
+
