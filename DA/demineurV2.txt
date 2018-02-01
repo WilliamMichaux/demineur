@@ -8,10 +8,10 @@
  
 // La carte est un simple tableau mais utlisé comme un double [EX 5x5] : 
 // 00 01 02 03 04  
-// 10 11 12 13 14  
-// 20 21 22 23 24 
-// 30 31 32 33 34 
-// 40 41 42 43 44
+// 05 06 07 08 09  
+// 10 11 12 13 14 
+// 15 16 17 18 19 
+// 20 21 22 23 24
 
 // "document" est un élement du DOM qui affiche la case
 
@@ -19,13 +19,13 @@
 Obtenir difficulté
 // Définition des paramètres de la partie
 if (difficulté = "facile")
-tailleCarte = 100
+tailleCarte = 10
 nbBombes = 10
 else if (difficulté = "moyen")
-tailleCarte = 225
+tailleCarte = 15
 nbBombes = 50
 else
-tailleCarte = 400
+tailleCarte = 20
 nbBombes = 100
 endif
 module(initCarte;tailleCarte, nbBombes, carte;carte)
@@ -40,12 +40,13 @@ carte[caseClic].flag = false
 else if (carte[caseClic].nbBombesVoisines = -1)
 // Si on tombe sur une bombe, on affiche toute la carte
 iCase = 0
-do while (iCase < tailleCarte)
+do while (iCase < tailleCarte*tailleCarte)
 document.carte[iCase] = visible
 iCase++
 enddo
 else
-module(afficheCase0;carte, caseClic)
+// On affiche les case adjacentes qui sont entourées de 0 bombes
+module(afficheCase0;carte, caseClic, tailleCarte)
 endif
 endif
 ------
@@ -54,45 +55,75 @@ endif
 module(initCarte;tailleCarte, nbBombes, carte;carte)
 iBomb = 0
 do while (iBomb <= nbBombes)
+// On demande un nombre aléatoire pour placer une bombe
 module(getRandInt;;randInt)
+// Si il n'y a pas de bombe à cet endroit, on en place une 
 if (carte[randInt].nbBombesVoisines = 0)
 carte[randInt].nbBombesVoisines = -1
 carte[iCase].flag = false
 iBomb++
 endif
 enddo
+// On calcule le nombre de bombes voisines de chaque case pour afficher plus facilement
 iCase = 0
-do while (iCase < tailleCarte)
+do while (iCase < tailleCarte*tailleCarte)
 if (carte[iCase].nbBombesvoisines = 0)
-module(compteNbBombes;carte,iCase;nbBombesVoisines)
+module(compteNbBombes;carte,iCase,tailleCarte;nbBombesVoisines)
 carte[iCase].nbBombesVoisines = nbBombesVoisines
 carte[iCase].flag = false
 endif
 iCase++
 enddo
 ------
-
 ---* compteNbBombes
-module(compteNbBombes;carte,iCase;nbBombes)
+module(compteNbBombes;carte,iCase,tailleCarte;nbBombesVoisines)
 nbBombes = 0
-caseVoisines = [iCase-1, iCase+1, iCase+10, iCase-10, iCase+11, iCase+9,iCase-11, iCase-9]
-iVois
-do while (ivois < 8)
-if (carte[iVois].nbBombesVoisines = -1)
+module(getVoisins;caseVoisines, iCase,tailleCarte;caseVoisines)
+iVois = 0
+do while (iVois < lenght.caseVoisines)
+indice = caseVoisines[iVois]
+if (carte[indice] = -1)
 nbBombes++
 endif
-iVois
+iVois++
 enddo
 ------
 
+---* getVoisins
+module(getVoisins;caseVoisines,iCase,tailleCarte;caseVoisines)
+if (iCase % tailleCarte = 0) // Coté gauche
+if (iCase = 0) // Coin haut gauche
+caseVoisines = [iCase + 1, iCase + tailleCarte, iCase + tailleCarte+1]
+else if (iCase = (tailleCarte * tailleCarte-1)) // Coin gauche bas
+caseVoisines = [iCase + 1, iCase - tailleCarte, iCase - tailleCarte-1]
+else // Coté gauche sans les extrêmes
+caseVoisines = [iCase + 1, iCase + tailleCarte, iCase + tailleCarte+1, iCase - tailleCarte, iCase - tailleCarte-1]
+endif
+else if (iCase % tailleCarte = tailleCarte -1) // Coté droit
+if (iCase = tailleCarte - 1) // Coin haut droit
+caseVoisines = [iCase -1,iCase + tailleCarte, iCase + tailleCarte -1]
+else if (iCase = tailleCarte*tailleCarte -1) // Coin bas droit
+caseVoisines = [iCase-1,iCase - tailleCarte + 1, iCase - tailleCarte] 
+else // Coté droit sans les extrêmes
+caseVoisines = [iCase -1, iCase + tailleCarte, iCase + tailleCarte-1, iCase - tailleCarte, iCase - tailleCarte + 1]
+endif
+else if (iCase < tailleCarte) // Haut de la grille, les extrêmes sont déjà traités dans les autres cas
+caseVoisines = [iCase -1, iCase +1, iCase + tailleCarte, iCase + tailleCarte + 1,iCase + tailleCarte -1]
+else if (iCase > tailleCarte*tailleCarte - tailleCarte) // Bas de la grille, les extrêmes sont déjà traités
+caseVoisines = [iCase -1, iCase+1, iCase - tailleCarte, iCase - tailleCarte+1, iCase-tailleCarte-1]
+else // Toutes les autres case
+caseVoisines = [iCase -1, iCase+1,iCase-tailleCarte,iCase-tailleCarte+1,iCase-tailleCarte-1,iCase+tailleCarte,iCase+tailleCarte+1,iCase+tailleCarte-1]
+endif
+------
+
 ---* afficheCase0
-module(afficheCase0;carte, case)
+module(afficheCase0;carte, case, tailleCarte)
 document.carte[case] = visible
-casesVisées = [case+1, case-1, case+10,case-10]
+module(getVoisins;caseVoisines,case,tailleCarte;caseVoisines)
 iCase = 0
 do while (iCase < 4)
 if (carte[iCase].nbBombesVoisines = 0)
-module(afficheCase0;carte, iCase)
+module(afficheCase0;carte, iCase, tailleCarte)
 endif
 iCase++
 enddo
