@@ -19,7 +19,8 @@ formElt.addEventListener("click", function (e) {
         tailleCarte = 20;
         nbBombes = 100;
     }
-
+    
+    document.getElementById("grille").textContent = "";
     console.log(tailleCarte, nbBombes);
 
     initCarte(tailleCarte, nbBombes);
@@ -47,7 +48,7 @@ function initCarte(tailleCarte, nbBombes) {
         }
     }
     //On calcule le nombre de bombes voisine à chaque case sauf celles qui comportent une bombe
-    /*var nbBombes;
+    var nbBombes;
     for (var iCase = 0; iCase < tailleCarte*tailleCarte; iCase++) {
         if (carte[iCase].nbBombesVoisines === 0) {
             console.log("Case N° : " + iCase);
@@ -55,20 +56,22 @@ function initCarte(tailleCarte, nbBombes) {
             console.log("Nb de bombes : " + nbBombes);
             carte[iCase].nbBombesVoisines = nbBombes;
         }
-    }*/
+    }
     //Afficher les valeurs des cases A SUPPRIMER
     for (var i = 0; i < tailleCarte*tailleCarte; i++) {
         console.log(i + "-->" + carte[i].nbBombesVoisines);
     }
     var tableElt = document.getElementById("grille");
-    for (var abs = 1; abs <= tailleCarte; abs++) {
-        var ligneElt = document.createElement("tr"); 
+    var cpt = 0;
+    while (cpt < tailleCarte*tailleCarte) {
+        var ligneElt = document.createElement("tr");
         for (var ord = 0; ord< tailleCarte; ord++) {
             var cellEtl = document.createElement("td");
-            cellEtl.textContent = carte[abs*ord].nbBombesVoisines;
-            cellEtl.id = abs*ord;
+            cellEtl.textContent = carte[cpt].nbBombesVoisines;
+            cellEtl.id = cpt;
             cellEtl.style.width = "25px";
             ligneElt.appendChild(cellEtl);
+            cpt++;
         }
         tableElt.appendChild(ligneElt);
     }
