@@ -60,12 +60,16 @@ function initCarte(tailleCarte, nbBombes) {
     for (var i = 0; i < tailleCarte*tailleCarte; i++) {
         console.log(i + "-->" + carte[i].nbBombesVoisines);
     }
-    var tableElt = document.querySelector("table");
+    var tableElt = document.getElementById("grille");
     for (var abs = 1; abs <= tailleCarte; abs++) {
-        var ligneElt = document.createElement("tr"); //ICICICIICIC
+        var ligneElt = document.createElement("tr"); 
         for (var ord = 0; ord< tailleCarte; ord++) {
-            
+            var cellEtl = document.createElement("td");
+            cellEtl.textContent = carte[abs*ord].nbBombesVoisines;
+            cellEtl.id = abs*ord;
+            ligneElt.appendChild(cellEtl);
         }
+        tableElt.appendChild(ligneElt);
     }
 }
 //fonction qui compte le nombre de bombes voisines à une certaines case
