@@ -41,21 +41,21 @@ function initCarte(tailleCarte, nbBombes) {
     var iBombe = 0;
     while (iBombe < nbBombes) {
         var randInt = getRandomInt(tailleCarte * tailleCarte);
-        if (carte[randInt].nbBombesVoisines == 0) {
+        if (carte[randInt].nbBombesVoisines === 0) {
             carte[randInt].nbBombesVoisines = -1;
             iBombe++;
         }
     }
     //On calcule le nombre de bombes voisine à chaque case sauf celles qui comportent une bombe
-    var nbBombes;
+    /*var nbBombes;
     for (var iCase = 0; iCase < tailleCarte*tailleCarte; iCase++) {
-        if (carte[iCase].nbBombesVoisines == 0) {
+        if (carte[iCase].nbBombesVoisines === 0) {
             console.log("Case N° : " + iCase);
             nbBombes= compteNbBombes(carte, iCase, tailleCarte);
             console.log("Nb de bombes : " + nbBombes);
             carte[iCase].nbBombesVoisines = nbBombes;
         }
-    }
+    }*/
     //Afficher les valeurs des cases A SUPPRIMER
     for (var i = 0; i < tailleCarte*tailleCarte; i++) {
         console.log(i + "-->" + carte[i].nbBombesVoisines);
@@ -67,6 +67,7 @@ function initCarte(tailleCarte, nbBombes) {
             var cellEtl = document.createElement("td");
             cellEtl.textContent = carte[abs*ord].nbBombesVoisines;
             cellEtl.id = abs*ord;
+            cellEtl.style.width = "25px";
             ligneElt.appendChild(cellEtl);
         }
         tableElt.appendChild(ligneElt);
@@ -79,7 +80,7 @@ function compteNbBombes(carte, indice, tailleCarte) {
     caseVoisines = getVoisins(carte, indice, tailleCarte);
     for (var iVois = 0; iVois < caseVoisines.length; iVois++) {
         var indice = caseVoisines[iVois];
-        if (carte[indice].nbBombesVoisines == -1) {
+        if (carte[indice].nbBombesVoisines === -1) {
             nbBombes++;
         }
     }
@@ -90,18 +91,18 @@ function compteNbBombes(carte, indice, tailleCarte) {
 function getVoisins(carte, indice, tailleCarte) {
     var caseVoisines = [];
     //console.log(indice + "%" + tailleCarte +"=" + indice%tailleCarte )
-    if (indice % tailleCarte == 0) { //Coté gauche
+    if (indice % tailleCarte === 0) { //Coté gauche
         if (indice == 0) { //Coin sup gauche
             caseVoisines = [indice + 1, indice + tailleCarte, indice + tailleCarte + 1];
-        } else if (indice == tailleCarte * (tailleCarte - 1)) { //Coin inf gauche
+        } else if (indice === tailleCarte * (tailleCarte - 1)) { //Coin inf gauche
             caseVoisines = [indice + 1, indice - tailleCarte, indice - tailleCarte + 1];
         } else { //reste gauche
             caseVoisines = [indice + 1, indice - tailleCarte, indice - tailleCarte + 1, indice + tailleCarte, indice + tailleCarte + 1];
         }
-    } else if (indice % tailleCarte == (tailleCarte - 1)) { //Coté droit
-        if (indice == tailleCarte - 1) { //Coin sup droit
+    } else if (indice % tailleCarte === (tailleCarte - 1)) { //Coté droit
+        if (indice === tailleCarte - 1) { //Coin sup droit
             caseVoisines = [indice-1, indice+tailleCarte, indice+tailleCarte-1];
-        } else if (indice == tailleCarte*tailleCarte-1) { //Coté inf droit
+        } else if (indice === tailleCarte*tailleCarte-1) { //Coté inf droit
             caseVoisines = [indice-1,indice-tailleCarte-1, indice-tailleCarte];
         } else {
             caseVoisines = [indice-1, indice + tailleCarte, indice+tailleCarte-1,indice - tailleCarte-1, indice-tailleCarte];
