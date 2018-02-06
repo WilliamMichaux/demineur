@@ -19,13 +19,12 @@ formElt.addEventListener("click", function (e) {
         tailleCarte = 20;
         nbBombes = 100;
     }
-    
-    document.getElementById("grille").textContent = "";
+
+    document.getElementById("bloc_page").textContent = "";
     console.log(tailleCarte, nbBombes);
 
     initCarte(tailleCarte, nbBombes);
 });
-
 //fonction pour obtenir un nombre aléatoire
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -49,32 +48,37 @@ function initCarte(tailleCarte, nbBombes) {
     }
     //On calcule le nombre de bombes voisine à chaque case sauf celles qui comportent une bombe
     var nbBombes;
-    for (var iCase = 0; iCase < tailleCarte*tailleCarte; iCase++) {
+    for (var iCase = 0; iCase < tailleCarte * tailleCarte; iCase++) {
         if (carte[iCase].nbBombesVoisines === 0) {
-            console.log("Case N° : " + iCase);
-            nbBombes= compteNbBombes(carte, iCase, tailleCarte);
-            console.log("Nb de bombes : " + nbBombes);
+            nbBombes = compteNbBombes(carte, iCase, tailleCarte);
             carte[iCase].nbBombesVoisines = nbBombes;
         }
     }
     //Afficher les valeurs des cases A SUPPRIMER
-    for (var i = 0; i < tailleCarte*tailleCarte; i++) {
+    for (var i = 0; i < tailleCarte * tailleCarte; i++) {
         console.log(i + "-->" + carte[i].nbBombesVoisines);
     }
-    var tableElt = document.getElementById("grille");
+    var tableElt = document.createElement("table");
+    tableElt.id = "grille";
     var cpt = 0;
-    while (cpt < tailleCarte*tailleCarte) {
+    while (cpt < tailleCarte * tailleCarte) {
         var ligneElt = document.createElement("tr");
-        for (var ord = 0; ord< tailleCarte; ord++) {
+        for (var ord = 0; ord < tailleCarte; ord++) {
             var cellEtl = document.createElement("td");
-            cellEtl.textContent = carte[cpt].nbBombesVoisines;
             cellEtl.id = cpt;
-            cellEtl.style.width = "25px";
+            cellEtl.style.height = "25px";
+            cellEtl.style.backgroundColor = "black";
+            var imgElt = document.createElement("img");
+            imgElt.src = "img/demineur_inconnu.jpg";
+            imgElt.alt = "case";
+            cellEtl.appendChild(imgElt);
             ligneElt.appendChild(cellEtl);
             cpt++;
         }
         tableElt.appendChild(ligneElt);
     }
+    document.getElementById("bloc_page").appendChild(tableElt);
+    listener();
 }
 //fonction qui compte le nombre de bombes voisines à une certaines case
 function compteNbBombes(carte, indice, tailleCarte) {
@@ -89,7 +93,7 @@ function compteNbBombes(carte, indice, tailleCarte) {
     }
     return nbBombes;
 
-};
+}
 //On obtient l'indice des voisins de la case
 function getVoisins(carte, indice, tailleCarte) {
     var caseVoisines = [];
@@ -104,19 +108,32 @@ function getVoisins(carte, indice, tailleCarte) {
         }
     } else if (indice % tailleCarte === (tailleCarte - 1)) { //Coté droit
         if (indice === tailleCarte - 1) { //Coin sup droit
-            caseVoisines = [indice-1, indice+tailleCarte, indice+tailleCarte-1];
-        } else if (indice === tailleCarte*tailleCarte-1) { //Coté inf droit
-            caseVoisines = [indice-1,indice-tailleCarte-1, indice-tailleCarte];
+            caseVoisines = [indice - 1, indice + tailleCarte, indice + tailleCarte - 1];
+        } else if (indice === tailleCarte * tailleCarte - 1) { //Coté inf droit
+            caseVoisines = [indice - 1, indice - tailleCarte - 1, indice - tailleCarte];
         } else {
-            caseVoisines = [indice-1, indice + tailleCarte, indice+tailleCarte-1,indice - tailleCarte-1, indice-tailleCarte];
+            caseVoisines = [indice - 1, indice + tailleCarte, indice + tailleCarte - 1, indice - tailleCarte - 1, indice - tailleCarte];
         }
     } else if (indice < tailleCarte) { //Ligne sup
-        caseVoisines = [indice -1, indice+1, indice+tailleCarte, indice+tailleCarte+1, indice+tailleCarte-1];
+        caseVoisines = [indice - 1, indice + 1, indice + tailleCarte, indice + tailleCarte + 1, indice + tailleCarte - 1];
     } else if (indice > tailleCarte * tailleCarte - tailleCarte) { //ligne inf
-        caseVoisines = [indice-1,indice+1, indice-tailleCarte, indice-tailleCarte-1, indice-tailleCarte+1];
+        caseVoisines = [indice - 1, indice + 1, indice - tailleCarte, indice - tailleCarte - 1, indice - tailleCarte + 1];
     } else {
-        caseVoisines = [indice-1, indice+1,indice-tailleCarte, indice-tailleCarte-1, indice-tailleCarte+1, indice+tailleCarte, indice+tailleCarte+1, indice+tailleCarte-1];
+        caseVoisines = [indice - 1, indice + 1, indice - tailleCarte, indice - tailleCarte - 1, indice - tailleCarte + 1, indice + tailleCarte, indice + tailleCarte + 1, indice + tailleCarte - 1];
     }
 
     return caseVoisines;
+}
+
+function listener(){
+    var tableElt = document.getElementById("grille");
+    tableElt.addEventListener("click", gestionClic)
+    tableElt.addEventListener("contextmenu", gestionClic);
+}
+function gestionClic(e) {
+    e.preventDefault();
+    var bouton = e.buttons;
+    var cellElt = document.getElementById(e.target);
+    console.log(cellElt);
+    console.log(bouton);
 }
