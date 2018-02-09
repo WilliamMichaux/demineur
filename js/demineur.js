@@ -1,7 +1,6 @@
 //On crée l'objet case qui sera dans chaque cellule du tableau pour stocker les infos de la case
 function Case(nbBombes, flag) {
     this.nbBombesVoisines = nbBombes;
-    this.flag = flag;
 }
 //On récupère la difficulté et on génère une carte en fonction
 var formElt = document.getElementById("difficulte");
@@ -21,8 +20,6 @@ formElt.addEventListener("click", function (e) {
     }
 
     document.getElementById("bloc_page").textContent = "";
-    console.log(tailleCarte, nbBombes);
-
     initCarte(tailleCarte, nbBombes);
 });
 //fonction pour obtenir un nombre aléatoire
@@ -54,23 +51,24 @@ function initCarte(tailleCarte, nbBombes) {
             carte[iCase].nbBombesVoisines = nbBombes;
         }
     }
-    //Afficher les valeurs des cases A SUPPRIMER
-    for (var i = 0; i < tailleCarte * tailleCarte; i++) {
-        console.log(i + "-->" + carte[i].nbBombesVoisines);
-    }
     var tableElt = document.createElement("table");
-    tableElt.id = "grille";
+    if (tailleCarte == 10) {
+        tableElt.id = "facile";
+    } else if (tailleCarte == 15) {
+        tableElt.id = "moyen";
+    } else {
+        tableElt.id = "hard";
+    }
+
     var cpt = 0;
     while (cpt < tailleCarte * tailleCarte) {
         var ligneElt = document.createElement("tr");
         for (var ord = 0; ord < tailleCarte; ord++) {
             var cellEtl = document.createElement("td");
-            cellEtl.id = cpt;
-            cellEtl.style.height = "25px";
-            cellEtl.style.backgroundColor = "black";
             var imgElt = document.createElement("img");
             imgElt.src = "img/demineur_inconnu.jpg";
-            imgElt.alt = "case";
+            imgElt.alt = carte[cpt].nbBombesVoisines;
+            imgElt.id = cpt;
             cellEtl.appendChild(imgElt);
             ligneElt.appendChild(cellEtl);
             cpt++;
@@ -84,7 +82,7 @@ function initCarte(tailleCarte, nbBombes) {
 function compteNbBombes(carte, indice, tailleCarte) {
     var nbBombes = 0;
     var caseVoisines = [];
-    caseVoisines = getVoisins(carte, indice, tailleCarte);
+    caseVoisines = getVoisins(indice, tailleCarte, true);
     for (var iVois = 0; iVois < caseVoisines.length; iVois++) {
         var indice = caseVoisines[iVois];
         if (carte[indice].nbBombesVoisines === -1) {
@@ -95,45 +93,154 @@ function compteNbBombes(carte, indice, tailleCarte) {
 
 }
 //On obtient l'indice des voisins de la case
-function getVoisins(carte, indice, tailleCarte) {
+function getVoisins(indice, tailleCarte, estTotal) {
+    if (!estTotal) {
+        indice = Number(indice);
+    }
     var caseVoisines = [];
     //console.log(indice + "%" + tailleCarte +"=" + indice%tailleCarte )
     if (indice % tailleCarte === 0) { //Coté gauche
         if (indice == 0) { //Coin sup gauche
-            caseVoisines = [indice + 1, indice + tailleCarte, indice + tailleCarte + 1];
+            if (estTotal) {
+                caseVoisines = [indice + 1, indice + tailleCarte, indice + tailleCarte + 1];
+            } else {
+                caseVoisines = [indice + 1, indice + tailleCarte];
+            }
         } else if (indice === tailleCarte * (tailleCarte - 1)) { //Coin inf gauche
-            caseVoisines = [indice + 1, indice - tailleCarte, indice - tailleCarte + 1];
+            if (estTotal) {
+                caseVoisines = [indice + 1, indice - tailleCarte, indice - tailleCarte + 1];
+            } else {
+                caseVoisines = [indice + 1, indice - tailleCarte];
+            }
         } else { //reste gauche
-            caseVoisines = [indice + 1, indice - tailleCarte, indice - tailleCarte + 1, indice + tailleCarte, indice + tailleCarte + 1];
+            if (estTotal) {
+                caseVoisines = [indice + 1, indice - tailleCarte, indice - tailleCarte + 1, indice + tailleCarte, indice + tailleCarte + 1];
+            } else {
+                caseVoisines = [indice + 1, indice - tailleCarte, indice + tailleCarte];
+            }
         }
     } else if (indice % tailleCarte === (tailleCarte - 1)) { //Coté droit
         if (indice === tailleCarte - 1) { //Coin sup droit
-            caseVoisines = [indice - 1, indice + tailleCarte, indice + tailleCarte - 1];
+            if (estTotal) {
+                caseVoisines = [indice - 1, indice + tailleCarte, indice + tailleCarte - 1];
+            } else {
+                caseVoisines = [indice - 1, indice + tailleCarte];
+            }
         } else if (indice === tailleCarte * tailleCarte - 1) { //Coté inf droit
-            caseVoisines = [indice - 1, indice - tailleCarte - 1, indice - tailleCarte];
-        } else {
-            caseVoisines = [indice - 1, indice + tailleCarte, indice + tailleCarte - 1, indice - tailleCarte - 1, indice - tailleCarte];
+            if (estTotal) {
+                caseVoisines = [indice - 1, indice - tailleCarte - 1, indice - tailleCarte];
+            } else {
+                caseVoisines = [indice - 1, indice - tailleCarte];
+            }
+        } else { //Reste droit
+            if (estTotal) {
+                caseVoisines = [indice - 1, indice + tailleCarte, indice + tailleCarte - 1, indice - tailleCarte - 1, indice - tailleCarte];
+            } else {
+                caseVoisines = [indice - 1, indice - tailleCarte, indice + tailleCarte];
+            }
         }
     } else if (indice < tailleCarte) { //Ligne sup
-        caseVoisines = [indice - 1, indice + 1, indice + tailleCarte, indice + tailleCarte + 1, indice + tailleCarte - 1];
+        if (estTotal) {
+            caseVoisines = [indice - 1, indice + 1, indice + tailleCarte, indice + tailleCarte + 1, indice + tailleCarte - 1];
+        } else {
+            caseVoisines = [indice + 1, indice - 1, indice + tailleCarte];
+        }
     } else if (indice > tailleCarte * tailleCarte - tailleCarte) { //ligne inf
-        caseVoisines = [indice - 1, indice + 1, indice - tailleCarte, indice - tailleCarte - 1, indice - tailleCarte + 1];
+        if (estTotal) {
+            caseVoisines = [indice - 1, indice + 1, indice - tailleCarte, indice - tailleCarte - 1, indice - tailleCarte + 1];
+        } else {
+            caseVoisines = [indice - 1, indice + 1, indice - tailleCarte];
+        }
     } else {
-        caseVoisines = [indice - 1, indice + 1, indice - tailleCarte, indice - tailleCarte - 1, indice - tailleCarte + 1, indice + tailleCarte, indice + tailleCarte + 1, indice + tailleCarte - 1];
+        if (estTotal) {
+            caseVoisines = [indice - 1, indice + 1, indice - tailleCarte, indice - tailleCarte - 1, indice - tailleCarte + 1, indice + tailleCarte, indice + tailleCarte + 1, indice + tailleCarte - 1];
+        } else {
+            caseVoisines = [indice - 1, indice + 1, indice + tailleCarte, indice - tailleCarte];
+        }
+
     }
 
     return caseVoisines;
 }
 
-function listener(){
-    var tableElt = document.getElementById("grille");
-    tableElt.addEventListener("click", gestionClic)
+function listener() {
+    var tableElt = document.querySelector("table");
+    //Clic gauche
+    tableElt.addEventListener("click", gestionClic);
+    //Clic droit
     tableElt.addEventListener("contextmenu", gestionClic);
 }
+
 function gestionClic(e) {
     e.preventDefault();
     var bouton = e.buttons;
-    var cellElt = document.getElementById(e.target);
-    console.log(cellElt);
-    console.log(bouton);
+    var srcElt = e.target.src;
+    var idElt = e.target.id;
+    var regexInconnu = /.demineur_inconnu./;
+    var regexFlag = /.flag./;
+    if (bouton == 2) { //Clic droit = ajout/suppression du drapeau       
+        if (regexInconnu.test(srcElt)) {
+            e.target.src = "img/flag.jpg";
+        } else if (regexFlag.test(srcElt)) {
+            e.target.src = "img/demineur_inconnu.jpg";
+        }
+    } else {
+        var nbBombes = e.target.alt;
+
+        if (!regexFlag.test(srcElt)) {
+            if (nbBombes == -1) {
+                afficheTout();
+
+            } else if (nbBombes == 0) {
+                e.target.src = "img/demineur_rien.jpg";
+                afficheZero(idElt);
+            } else {
+                e.target.src = "img/demineur_" + nbBombes + ".jpg";
+            }
+        }
+    }
+}
+
+function afficheTout() {
+    var tailleCarte;
+    if (document.querySelector("table").id == "facile") {
+        tailleCarte = 10;
+    } else if (document.querySelector("table").id == "moyen") {
+        tailleCarte = 15;
+    } else {
+        tailleCarte = 20;
+    }
+    for (var i = 0; i < tailleCarte * tailleCarte; i++) {
+        var cellElt = document.getElementById(i);
+        var nbBombes = cellElt.alt;
+        if (nbBombes == -1) {
+            cellElt.src = "img/demineur_bomb.jpg";
+
+        } else if (nbBombes == 0) {
+            cellElt.src = "img/demineur_rien.jpg";
+        } else {
+            cellElt.src = "img/demineur_" + nbBombes + ".jpg";
+        }
+    }
+}
+
+function afficheZero(caseVisee) {
+    var tailleCarte;
+    if (document.querySelector("table").id == "facile") {
+        tailleCarte = 10;
+    } else if (document.querySelector("table").id == "moyen") {
+        tailleCarte = 15;
+    } else {
+        tailleCarte = 20;
+    }
+    var cardinaux = getVoisins(caseVisee, tailleCarte, false);
+    for (var i = 0; i < cardinaux.length; i++) {
+        var nbBombes = document.getElementById(cardinaux[i]).alt;
+        if (nbBombes == 0) {
+            document.getElementById(cardinaux[i]).src = "img/demineur_rien.jpg";
+            //afficheZero(cardinaux[i]);
+        } else {
+            document.getElementById(cardinaux[i]).src = "img/demineur_" + nbBombes + ".jpg";
+        }
+    }
 }
