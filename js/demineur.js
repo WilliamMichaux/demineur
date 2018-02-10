@@ -193,7 +193,6 @@ function gestionClic(e) {
 
             } else if (nbBombes == 0) {
                 e.target.src = "img/demineur_rien.jpg";
-                afficheZero(idElt);
             } else {
                 e.target.src = "img/demineur_" + nbBombes + ".jpg";
             }
@@ -220,27 +219,6 @@ function afficheTout() {
             cellElt.src = "img/demineur_rien.jpg";
         } else {
             cellElt.src = "img/demineur_" + nbBombes + ".jpg";
-        }
-    }
-}
-
-function afficheZero(caseVisee) {
-    var tailleCarte;
-    if (document.querySelector("table").id == "facile") {
-        tailleCarte = 10;
-    } else if (document.querySelector("table").id == "moyen") {
-        tailleCarte = 15;
-    } else {
-        tailleCarte = 20;
-    }
-    var cardinaux = getVoisins(caseVisee, tailleCarte, false);
-    for (var i = 0; i < cardinaux.length; i++) {
-        var nbBombes = document.getElementById(cardinaux[i]).alt;
-        if (nbBombes == 0) {
-            document.getElementById(cardinaux[i]).src = "img/demineur_rien.jpg";
-            //afficheZero(cardinaux[i]);
-        } else {
-            document.getElementById(cardinaux[i]).src = "img/demineur_" + nbBombes + ".jpg";
         }
     }
 }
