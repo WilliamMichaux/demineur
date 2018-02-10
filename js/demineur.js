@@ -186,13 +186,23 @@ function gestionClic(e) {
         }
     } else {
         var nbBombes = e.target.alt;
+        var tailleCarte;
+        if (document.querySelector("table").id == "facile") {
+            tailleCarte = 10;
+        } else if (document.querySelector("table").id == "moyen") {
+            tailleCarte = 15;
+        } else {
+            tailleCarte = 20;
+        }
 
         if (!regexFlag.test(srcElt)) {
             if (nbBombes == -1) {
                 afficheTout();
-
             } else if (nbBombes == 0) {
                 e.target.src = "img/demineur_rien.jpg";
+                var caseVisitees = [];
+                caseVisitees.push(Number(idElt));
+                afficheVoisins(tailleCarte, Number(idElt), caseVisitees);
             } else {
                 e.target.src = "img/demineur_" + nbBombes + ".jpg";
             }
@@ -220,5 +230,26 @@ function afficheTout() {
         } else {
             cellElt.src = "img/demineur_" + nbBombes + ".jpg";
         }
+    }
+}
+
+function afficheVoisins(tailleCarte, indice, caseVisitees) {
+    var voisins = getVoisins(indice, tailleCarte, true);
+    for (var i = 0; i < voisins.length; i++) {
+        var index = caseVisitees.indexOf(voisins[i]);
+        if (index == -1) {
+            var caseElt = document.getElementById(voisins[i]);
+            var nbBombes = caseElt.alt;
+            if (nbBombes == 0) {
+                caseElt.src = "img/demineur_rien.jpg";
+                caseVisitees.push(voisins[i]);
+                console.log(caseVisitees);
+                afficheVoisins(tailleCarte, voisins[i], caseVisitees);
+            } else {
+                caseElt.src = "img/demineur_" + nbBombes + ".jpg";
+            }
+        }
+
+
     }
 }
