@@ -1,5 +1,5 @@
 //On crée l'objet case qui sera dans chaque cellule du tableau pour stocker les infos de la case
-function Case(nbBombes, flag) {
+function Case(nbBombes) {
     this.nbBombesVoisines = nbBombes;
 }
 //On récupère la difficulté et on génère une carte en fonction
@@ -31,7 +31,7 @@ function initCarte(tailleCarte, nbBombes) {
     var carte = [];
     //On initialise la carte en fn de la taille en y ajoutant un objet Case dans chaque cellule (nbCellules = taille*taille)
     for (var iCase = 0; iCase < tailleCarte * tailleCarte; iCase++) {
-        var nouvelleCase = new Case(0, false);
+        var nouvelleCase = new Case(0);
         carte.push(nouvelleCase);
     }
     //On ajoute le nombre de bombes nécessaires aléatoirement dans la carte
@@ -51,13 +51,19 @@ function initCarte(tailleCarte, nbBombes) {
             carte[iCase].nbBombesVoisines = nbBombes;
         }
     }
+    var pElt = document.createElement("p");
+    pElt.id = "text_confirm";
+    pElt.style.display = "none";
     var tableElt = document.createElement("table");
     if (tailleCarte == 10) {
         tableElt.id = "facile";
+        pElt.textContent = 10;
     } else if (tailleCarte == 15) {
         tableElt.id = "moyen";
+        pElt.textContent = 50;
     } else {
         tableElt.id = "hard";
+        pElt.textContent = 100
     }
 
     var cpt = 0;
@@ -75,6 +81,7 @@ function initCarte(tailleCarte, nbBombes) {
         }
         tableElt.appendChild(ligneElt);
     }
+    document.getElementById("bloc_page").appendChild(pElt);
     document.getElementById("bloc_page").appendChild(tableElt);
     listener();
 }
@@ -173,6 +180,14 @@ function listener() {
 
 function gestionClic(e) {
     e.preventDefault();
+    var tailleCarte;
+    if (document.querySelector("table").id == "facile") {
+        tailleCarte = 10;
+    } else if (document.querySelector("table").id == "moyen") {
+        tailleCarte = 15;
+    } else {
+        tailleCarte = 20;
+    }
     var bouton = e.buttons;
     var srcElt = e.target.src;
     var idElt = e.target.id;
@@ -181,23 +196,23 @@ function gestionClic(e) {
     if (bouton == 2) { //Clic droit = ajout/suppression du drapeau       
         if (regexInconnu.test(srcElt)) {
             e.target.src = "img/flag.jpg";
+            if (e.target.alt == -1) {
+                document.getElementById("text_confirm").textContent--;
+            }
+            if (document.getElementById("text_confirm").textContent == 0) {
+                document.getElementById("text_confirm").textContent = "GG tu as gagné !";
+                document.getElementById("text_confirm").style.display = "block";
+            }
         } else if (regexFlag.test(srcElt)) {
             e.target.src = "img/demineur_inconnu.jpg";
         }
     } else {
         var nbBombes = e.target.alt;
-        var tailleCarte;
-        if (document.querySelector("table").id == "facile") {
-            tailleCarte = 10;
-        } else if (document.querySelector("table").id == "moyen") {
-            tailleCarte = 15;
-        } else {
-            tailleCarte = 20;
-        }
-
         if (!regexFlag.test(srcElt)) {
             if (nbBombes == -1) {
                 afficheTout();
+                document.getElementById("text_confirm").textContent = "BOUM PERDU !";
+                document.getElementById("text_confirm").style.display = "block";
             } else if (nbBombes == 0) {
                 e.target.src = "img/demineur_rien.jpg";
                 var caseVisitees = [];
