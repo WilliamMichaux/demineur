@@ -13,10 +13,10 @@ formElt.addEventListener("click", function (e) {
         nbBombes = 10;
     } else if (difficulte === "moyen") {
         tailleCarte = 15;
-        nbBombes = 50;
+        nbBombes = 25;
     } else {
         tailleCarte = 20;
-        nbBombes = 100;
+        nbBombes = 75;
     }
 
     document.getElementById("grilleDem").textContent = "";
