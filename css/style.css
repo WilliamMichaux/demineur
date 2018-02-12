@@ -22,39 +22,6 @@ p {
 
 }
 
-/* Style the links inside the sidenav */
-
-#mySidenav a {
-    position: fixed;
-    left: -100px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 120px;
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    border-radius: 0 5px 5px 0;
-}
-
-#mySidenav a:hover {
-    left: 0;
-    /* On mouse-over, make the elements appear as they should */
-}
-
-#jeu {
-    top: 40px;
-    background-color: #0b648f;
-}
-
-#regles {
-    top: 100px;
-    background-color: #e21737;
-}
-
-#contact {
-    top: 160px;
-    background-color: #fdbb30;
-}
 
 /*Style pour les boutons de difficultés*/
 .button {
