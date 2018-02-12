@@ -19,7 +19,7 @@ formElt.addEventListener("click", function (e) {
         nbBombes = 100;
     }
 
-    document.getElementById("bloc_page").textContent = "";
+    document.getElementById("grilleDem").textContent = "";
     initCarte(tailleCarte, nbBombes);
 });
 //fonction pour obtenir un nombre aléatoire
@@ -44,26 +44,21 @@ function initCarte(tailleCarte, nbBombes) {
         }
     }
     //On calcule le nombre de bombes voisine à chaque case sauf celles qui comportent une bombe
-    var nbBombes;
+    var nbBombesVois;
     for (var iCase = 0; iCase < tailleCarte * tailleCarte; iCase++) {
         if (carte[iCase].nbBombesVoisines === 0) {
-            nbBombes = compteNbBombes(carte, iCase, tailleCarte);
-            carte[iCase].nbBombesVoisines = nbBombes;
+            nbBombesVois = compteNbBombes(carte, iCase, tailleCarte);
+            carte[iCase].nbBombesVoisines = nbBombesVois;
         }
     }
-    var pElt = document.createElement("p");
-    pElt.id = "text_confirm";
-    pElt.style.display = "none";
+    
     var tableElt = document.createElement("table");
     if (tailleCarte == 10) {
         tableElt.id = "facile";
-        pElt.textContent = 10;
     } else if (tailleCarte == 15) {
         tableElt.id = "moyen";
-        pElt.textContent = 50;
     } else {
         tableElt.id = "hard";
-        pElt.textContent = 100
     }
 
     var cpt = 0;
@@ -81,8 +76,10 @@ function initCarte(tailleCarte, nbBombes) {
         }
         tableElt.appendChild(ligneElt);
     }
-    document.getElementById("bloc_page").appendChild(pElt);
-    document.getElementById("bloc_page").appendChild(tableElt);
+    var pElt = document.createElement("p");
+    pElt.id = "text_confirm";
+    document.getElementById("grilleDem").appendChild(pElt);
+    document.getElementById("grilleDem").appendChild(tableElt);
     listener();
 }
 //fonction qui compte le nombre de bombes voisines à une certaines case
@@ -204,7 +201,7 @@ function gestionClic(e) {
                 document.getElementById("text_confirm").style.display = "block";
             }
         } else if (regexFlag.test(srcElt)) {
-            e.target.src = "img/demineur_inconnu.jpg";
+            e.target.src = "img/demineur_inconnu.jpg";z
         }
     } else {
         var nbBombes = e.target.alt;
