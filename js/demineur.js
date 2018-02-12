@@ -53,14 +53,18 @@ function initCarte(tailleCarte, nbBombes) {
     }
     
     var tableElt = document.createElement("table");
-    if (tailleCarte == 10) {
-        tableElt.id = "facile";
-    } else if (tailleCarte == 15) {
-        tableElt.id = "moyen";
-    } else {
-        tableElt.id = "hard";
-    }
-
+    tableElt.class = tailleCarte;
+    
+    var divElt = document.createElement("div");
+    divElt.id = "flagsElt";
+    var spanElt = document.createElement("span");
+    spanElt.id = "flag_restants";
+    spanElt.textContent = nbBombes;
+    var flagElt = document.createElement("img");
+    flagElt.src = "img/flag.jpg";
+    divElt.appendChild(spanElt);
+    divElt.appendChild(flagElt);
+    
     var cpt = 0;
     while (cpt < tailleCarte * tailleCarte) {
         var ligneElt = document.createElement("tr");
@@ -76,9 +80,11 @@ function initCarte(tailleCarte, nbBombes) {
         }
         tableElt.appendChild(ligneElt);
     }
+    document.getElementById("nbBombesRestantes").textContent = nbBombes;
     var pElt = document.createElement("p");
     pElt.id = "text_confirm";
     document.getElementById("grilleDem").appendChild(pElt);
+    document.getElementById("grilleDem").appendChild(divElt);
     document.getElementById("grilleDem").appendChild(tableElt);
     listener();
 }
@@ -177,14 +183,8 @@ function listener() {
 
 function gestionClic(e) {
     e.preventDefault();
-    var tailleCarte;
-    if (document.querySelector("table").id == "facile") {
-        tailleCarte = 10;
-    } else if (document.querySelector("table").id == "moyen") {
-        tailleCarte = 15;
-    } else {
-        tailleCarte = 20;
-    }
+    var tailleCarte = document.querySelector("table").class;
+    tailleCarte = Number(tailleCarte);
     var bouton = e.buttons;
     var srcElt = e.target.src;
     var idElt = e.target.id;
@@ -193,23 +193,23 @@ function gestionClic(e) {
     if (bouton == 2) { //Clic droit = ajout/suppression du drapeau       
         if (regexInconnu.test(srcElt)) {
             e.target.src = "img/flag.jpg";
+            document.getElementById("flag_restants").textContent--;
             if (e.target.alt == -1) {
-                document.getElementById("text_confirm").textContent--;
+                document.getElementById("nbBombesRestantes").textContent--;
             }
-            if (document.getElementById("text_confirm").textContent == 0) {
-                document.getElementById("text_confirm").textContent = "GG tu as gagné !";
-                document.getElementById("text_confirm").style.display = "block";
+            if (document.getElementById("nbBombesRestantes").textContent == 0) {
+                document.getElementById("text_confirm").textContent = "GG c'est gagné !!";
             }
         } else if (regexFlag.test(srcElt)) {
-            e.target.src = "img/demineur_inconnu.jpg";z
+            e.target.src = "img/demineur_inconnu.jpg";
+            document.getElementById("flag_restants").textContent++;
         }
     } else {
         var nbBombes = e.target.alt;
         if (!regexFlag.test(srcElt)) {
             if (nbBombes == -1) {
+                document.getElementById("text_confirm").textContent = "Perdu !!";
                 afficheTout();
-                document.getElementById("text_confirm").textContent = "BOUM PERDU !";
-                document.getElementById("text_confirm").style.display = "block";
             } else if (nbBombes == 0) {
                 e.target.src = "img/demineur_rien.jpg";
                 var caseVisitees = [];
