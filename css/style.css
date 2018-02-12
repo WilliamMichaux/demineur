@@ -1,15 +1,79 @@
 body {
-    background-color: beige;
+    background-color: whitesmoke;
+    font-family: 'Josefin Sans';
 }
+
 table {
-    margin :auto;
-    margin-top : 50px;
+    margin: auto;
+    margin-top: 20px;
     padding: 20px;
-    border : 3px solid black;
+    border: 3px solid black;
     background-color: lightblue;
-    
+
 }
 
 p {
     text-align: center;
+    font-size: 3em;
+}
+
+#flagsElt {
+    text-align: center;
+
+}
+
+/* Style the links inside the sidenav */
+
+#mySidenav a {
+    position: fixed;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+    left: 0;
+    /* On mouse-over, make the elements appear as they should */
+}
+
+#jeu {
+    top: 40px;
+    background-color: #0b648f;
+}
+
+#regles {
+    top: 100px;
+    background-color: #e21737;
+}
+
+#contact {
+    top: 160px;
+    background-color: #fdbb30;
+}
+
+/*Style pour les boutons de difficultés*/
+.button {
+  padding: 15px 25px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #0b648f;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #2A80A9}
+
+.button:active {
+  background-color: #2A80A9;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
