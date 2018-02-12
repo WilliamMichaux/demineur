@@ -6,21 +6,28 @@
     <meta charset="utf-8">
     <title>Démineur</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 </head>
 
 <body>
     <h1 style="text-align: center;">Démineur</h1>
 
+    <div id="mySidenav" class="sidenav">
+        <a href="#" id="jeu">Démineur</a>
+        <a href="#" id="regles">Règles</a>
+        <a href="#" id="contact">Contact</a>
+    </div>
+
     <form id="difficulte" style="text-align: center">
-        <input type="button" value="Débutant" id="facile">
-        <input type="button" value="Intermédiaire"  id="moyen">
-        <input type="button" value="Expert" id="hard">
+        <input type="button" class="button" value="Débutant" id="facile">
+        <input type="button" class="button" value="Intermédiaire" id="moyen">
+        <input type="button" class="button" value="Expert" id="hard">
     </form>
-    
+
     <span id="nbBombesRestantes" hidden></span>
     <div id="grilleDem"></div>
 </body>
-    
+
 <script src="js/demineur.js"></script>
 
 </html>
