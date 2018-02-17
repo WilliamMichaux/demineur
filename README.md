@@ -7,3 +7,10 @@ A Faire :
 -Ajouter règles
 -Ajouter un timer
 -Ajouter des cookies avec le timer
+
+
+-Classe
+-Patern Module
+-Créer une classe carte
+-JQuery ?
+-ViewJs
