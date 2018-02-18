@@ -177,8 +177,6 @@ function listener() {
     var tableElt = document.querySelector("table");
     //Clic gauche
     tableElt.addEventListener("click", gestionClic);
-    //Clic droit
-    tableElt.addEventListener("contextmenu", gestionClic);
 }
 
 function gestionClic(e) {
@@ -190,7 +188,7 @@ function gestionClic(e) {
     var idElt = e.target.id;
     var regexInconnu = /.demineur_inconnu./;
     var regexFlag = /.flag./;
-    if (bouton == 2) { //Clic droit = ajout/suppression du drapeau       
+    if (e.ctrlKey) { //Clic droit = ajout/suppression du drapeau       
         if (regexInconnu.test(srcElt)) {
             e.target.src = "img/flag.jpg";
             document.getElementById("flag_restants").textContent--;
@@ -255,7 +253,6 @@ function afficheVoisins(tailleCarte, indice, caseVisitees) {
             if (nbBombes == 0) {
                 caseElt.src = "img/demineur_rien.jpg";
                 caseVisitees.push(voisins[i]);
-                console.log(caseVisitees);
                 afficheVoisins(tailleCarte, voisins[i], caseVisitees);
             } else {
                 caseElt.src = "img/demineur_" + nbBombes + ".jpg";
