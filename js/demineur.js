@@ -2,6 +2,8 @@
 function Case(nbBombes) {
     this.nbBombesVoisines = nbBombes;
 }
+
+initCarte(15,25);
 //On récupère la difficulté et on génère une carte en fonction
 var formElt = document.getElementById("difficulte");
 formElt.addEventListener("click", function (e) {
@@ -85,7 +87,7 @@ function initCarte(tailleCarte, nbBombes) {
     pElt.id = "text_confirm";
     document.getElementById("grilleDem").appendChild(pElt);
     document.getElementById("grilleDem").appendChild(divElt);
-    document.getElementById("grilleDem").appendChild(tableElt);
+    document.getElementById("grilleDem").appendChild(tableElt);    
     listener();
 }
 //fonction qui compte le nombre de bombes voisines à une certaines case

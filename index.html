@@ -15,8 +15,8 @@
 
     <div id="mySidenav" class="sidenav">
         <a href="#" id="jeu">Démineur</a>
-        <a href="html/regles.html" id="regles">Règles</a>
-        <a href="html/contact.html" id="contact">Contact</a>
+        <a href="regles.html" id="regles">Règles</a>
+        <a href="contact.html" id="contact">Contact</a>
     </div>
 
     <form id="difficulte" style="text-align: center">
@@ -27,6 +27,10 @@
 
     <span id="nbBombesRestantes" hidden></span>
     <div id="grilleDem"></div>
+    <div class="alert">
+        Commencez la partie avec un clic gauche sur une case de la grille ! Maintenez CRTL en cliquant pour placer un drapeau !
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
 </body>
 
 <script src="js/demineur.js"></script>
