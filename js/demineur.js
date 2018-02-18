@@ -53,7 +53,7 @@ function initCarte(tailleCarte, nbBombes) {
     }
     
     var tableElt = document.createElement("table");
-    tableElt.class = tailleCarte;
+    tableElt.dataset.taille = tailleCarte;
     
     var divElt = document.createElement("div");
     divElt.id = "flagsElt";
@@ -176,20 +176,22 @@ function getVoisins(indice, tailleCarte, estTotal) {
 function listener() {
     var tableElt = document.querySelector("table");
     //Clic gauche
-    tableElt.addEventListener("click", gestionClic);
+    tableElt.addEventListener("click", gestionClic);    
+
+    
 }
 
 function gestionClic(e) {
     e.preventDefault();
-    var tailleCarte = document.querySelector("table").class;
+    var tailleCarte = document.querySelector("table").getAttribute("data-taille");
     tailleCarte = Number(tailleCarte);
     var bouton = e.buttons;
     var srcElt = e.target.src;
     var idElt = e.target.id;
     var regexInconnu = /.demineur_inconnu./;
     var regexFlag = /.flag./;
-    if (e.ctrlKey) { //Clic droit = ajout/suppression du drapeau       
-        if (regexInconnu.test(srcElt)) {
+    if (e.ctrlKey && document.getElementById("nbBombesRestantes").textContent > 0) { //Clic gauche + ctrl = ajout/suppression du drapeau       
+        if (regexInconnu.test(srcElt) && document.getElementById("flag_restants").textContent > 0) {
             e.target.src = "img/flag.jpg";
             document.getElementById("flag_restants").textContent--;
             if (e.target.alt == -1) {
@@ -197,17 +199,21 @@ function gestionClic(e) {
             }
             if (document.getElementById("nbBombesRestantes").textContent == 0) {
                 document.getElementById("text_confirm").textContent = "GG c'est gagné !!";
+                afficheTout(false, tailleCarte);
             }
         } else if (regexFlag.test(srcElt)) {
             e.target.src = "img/demineur_inconnu.jpg";
             document.getElementById("flag_restants").textContent++;
+            if (e.target.alt == -1) {
+                document.getElementById("nbBombesRestantes").textContent++;
+            }
         }
     } else {
         var nbBombes = e.target.alt;
         if (!regexFlag.test(srcElt)) {
             if (nbBombes == -1) {
                 document.getElementById("text_confirm").textContent = "Perdu !!";
-                afficheTout();
+                afficheTout(true, tailleCarte);
             } else if (nbBombes == 0) {
                 e.target.src = "img/demineur_rien.jpg";
                 var caseVisitees = [];
@@ -220,21 +226,16 @@ function gestionClic(e) {
     }
 }
 
-function afficheTout() {
-    var tailleCarte;
-    if (document.querySelector("table").id == "facile") {
-        tailleCarte = 10;
-    } else if (document.querySelector("table").id == "moyen") {
-        tailleCarte = 15;
-    } else {
-        tailleCarte = 20;
-    }
+function afficheTout(estPerdu, tailleCarte) {
     for (var i = 0; i < tailleCarte * tailleCarte; i++) {
         var cellElt = document.getElementById(i);
         var nbBombes = cellElt.alt;
         if (nbBombes == -1) {
-            cellElt.src = "img/demineur_bomb.jpg";
-
+            if (estPerdu) {
+                cellElt.src = "img/demineur_bomb.jpg";   
+            } else {
+                cellElt.src = "img/flag.jpg";
+            }
         } else if (nbBombes == 0) {
             cellElt.src = "img/demineur_rien.jpg";
         } else {
