@@ -4,32 +4,13 @@ function Case(nbBombes) {
 }
 
 initCarte(15,25);
-//On récupère la difficulté et on génère une carte en fonction
-var formElt = document.getElementById("difficulte");
-formElt.addEventListener("click", function (e) {
-    var difficulte = e.target.id;
-    var tailleCarte;
-    var nbBombes;
-    if (difficulte === "facile") {
-        tailleCarte = 10;
-        nbBombes = 10;
-    } else if (difficulte === "moyen") {
-        tailleCarte = 15;
-        nbBombes = 25;
-    } else {
-        tailleCarte = 20;
-        nbBombes = 75;
-    }
-
-    document.getElementById("grilleDem").textContent = "";
-    initCarte(tailleCarte, nbBombes);
-});
 //fonction pour obtenir un nombre aléatoire
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 //fonction qui initalise la grille de démineur en y ajoutant les bombes et le nombre de bombes voisines à chacunes des cases
 function initCarte(tailleCarte, nbBombes) {
+    document.getElementById("grilleDem").textContent = "";
     var carte = [];
     //On initialise la carte en fn de la taille en y ajoutant un objet Case dans chaque cellule (nbCellules = taille*taille)
     for (var iCase = 0; iCase < tailleCarte * tailleCarte; iCase++) {
