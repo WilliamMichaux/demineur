@@ -1,3 +1,5 @@
+overflow-x: hidden;
+
 body {
     background-color: whitesmoke;
     font-family: 'Josefin Sans';
@@ -17,9 +19,9 @@ p {
     font-size: 3em;
 }
 
-#flagsElt {
+#infos {
     text-align: center;
-
+    font-family: 'Josefin Sans';
 }
 
 
