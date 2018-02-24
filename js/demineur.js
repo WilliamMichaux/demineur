@@ -2,8 +2,6 @@
 function Case(nbBombes) {
     this.nbBombesVoisines = nbBombes;
 }
-
-initCarte(15,25);
 //fonction pour obtenir un nombre aléatoire
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -30,16 +28,19 @@ function initCarte(tailleCarte, nbBombes) {
     var nbBombesVois;
     for (var iCase = 0; iCase < tailleCarte * tailleCarte; iCase++) {
         if (carte[iCase].nbBombesVoisines === 0) {
+            //Si la carte ne porte pas de bombe, on calcule le nombre de bombes parmi ses voisins
             nbBombesVois = compteNbBombes(carte, iCase, tailleCarte);
             carte[iCase].nbBombesVoisines = nbBombesVois;
         }
     }
     
+    //On crée l'élement table qui va recueillir les infos de la grille et qui permet de l'afficher
     var tableElt = document.createElement("table");
+    //On crée un attribut pour la carte en indiquant la taille de celle ci
     tableElt.dataset.taille = tailleCarte;
     
     var divElt = document.createElement("div");
-    divElt.id = "flagsElt";
+    divElt.id = "infos";
     var spanElt = document.createElement("span");
     spanElt.id = "flag_restants";
     spanElt.textContent = nbBombes;
@@ -69,7 +70,7 @@ function initCarte(tailleCarte, nbBombes) {
     document.getElementById("grilleDem").appendChild(pElt);
     document.getElementById("grilleDem").appendChild(divElt);
     document.getElementById("grilleDem").appendChild(tableElt);    
-    listener();
+    
 }
 //fonction qui compte le nombre de bombes voisines à une certaines case
 function compteNbBombes(carte, indice, tailleCarte) {
@@ -91,7 +92,6 @@ function getVoisins(indice, tailleCarte, estTotal) {
         indice = Number(indice);
     }
     var caseVoisines = [];
-    //console.log(indice + "%" + tailleCarte +"=" + indice%tailleCarte )
     if (indice % tailleCarte === 0) { //Coté gauche
         if (indice == 0) { //Coin sup gauche
             if (estTotal) {
@@ -225,6 +225,7 @@ function afficheTout(estPerdu, tailleCarte) {
             cellElt.src = "img/demineur_" + nbBombes + ".jpg";
         }
     }
+    clearInterval(listener);
 }
 
 function afficheVoisins(tailleCarte, indice, caseVisitees) {
@@ -246,3 +247,8 @@ function afficheVoisins(tailleCarte, indice, caseVisitees) {
 
     }
 }
+
+//On lance une partie de base
+initCarte(15,25);
+
+var intervalListener = setInterval(listener, 1000);
