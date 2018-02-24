@@ -17,11 +17,17 @@ p {
     font-size: 3em;
 }
 
-#infos {
+#drapeau {
     text-align: center;
     font-family: 'Josefin Sans';
 }
 
+#chrono {
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Josefin Sans';
+    margin-bottom: 5px;
+}
 
 /*Style pour les boutons de difficultés*/
 .button {
