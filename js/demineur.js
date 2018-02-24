@@ -38,14 +38,30 @@ function initCarte(tailleCarte, nbBombes) {
     var tableElt = document.createElement("table");
     //On crée un attribut pour la carte en indiquant la taille de celle ci
     tableElt.dataset.taille = tailleCarte;
-    
+    //On crée un élément div qui contiendra le nombre de drapeau et le chronomètre
     var divElt = document.createElement("div");
-    divElt.id = "infos";
+    divElt.id = "drapeau";
+    //On crée un élément div qui contiendra le chronomètre
+    var divChrono = document.createElement("div");
+    divChrono.id = "chrono";
+    //On crée un element minute pour modifier plus facilement
+    var spanMin = document.createElement("span");
+    spanMin.id = "minutes";
+    spanMin.textContent = 0;
+    divChrono.appendChild(spanMin);
+    divChrono.innerHTML += ':'
+    //On crée un element secondes pour modifier plus facilement
+    var spanSec = document.createElement("span");
+    spanSec.id = "secondes";
+    spanSec.textContent = "00";
+    divChrono.appendChild(spanSec);
+    //On crée l'élement span qui contiendra le nombre de drapeau
     var spanElt = document.createElement("span");
     spanElt.id = "flag_restants";
     spanElt.textContent = nbBombes;
     var flagElt = document.createElement("img");
     flagElt.src = "img/flag.jpg";
+    //On ajoute les différents éléments au div
     divElt.appendChild(spanElt);
     divElt.appendChild(flagElt);
     
@@ -68,6 +84,7 @@ function initCarte(tailleCarte, nbBombes) {
     var pElt = document.createElement("p");
     pElt.id = "text_confirm";
     document.getElementById("grilleDem").appendChild(pElt);
+    document.getElementById("grilleDem").appendChild(divChrono);
     document.getElementById("grilleDem").appendChild(divElt);
     document.getElementById("grilleDem").appendChild(tableElt);    
     
@@ -155,7 +172,7 @@ function getVoisins(indice, tailleCarte, estTotal) {
 
     return caseVoisines;
 }
-
+//Fonction qui regarde si il y a un clic ou non
 function listener() {
     var tableElt = document.querySelector("table");
     //Clic gauche
@@ -167,7 +184,9 @@ function listener() {
 function gestionClic(e) {
     e.preventDefault();
     var tailleCarte = document.querySelector("table").getAttribute("data-taille");
+    var nbClicsElt = document.getElementById("nbClics");
     tailleCarte = Number(tailleCarte);
+    nbClicsElt.textContent++;
     var bouton = e.buttons;
     var srcElt = e.target.src;
     var idElt = e.target.id;
@@ -247,8 +266,7 @@ function afficheVoisins(tailleCarte, indice, caseVisitees) {
 
     }
 }
-
 //On lance une partie de base
 initCarte(15,25);
-
+//On lance un interval pour gérer les clics
 var intervalListener = setInterval(listener, 1000);
