@@ -38,23 +38,9 @@ function initCarte(tailleCarte, nbBombes) {
     var tableElt = document.createElement("table");
     //On crée un attribut pour la carte en indiquant la taille de celle ci
     tableElt.dataset.taille = tailleCarte;
-    //On crée un élément div qui contiendra le nombre de drapeau et le chronomètre
+    //On crée un élément div qui contiendra le nombre de drapeau
     var divElt = document.createElement("div");
     divElt.id = "drapeau";
-    //On crée un élément div qui contiendra le chronomètre
-    var divChrono = document.createElement("div");
-    divChrono.id = "chrono";
-    //On crée un element minute pour modifier plus facilement
-    var spanMin = document.createElement("span");
-    spanMin.id = "minutes";
-    spanMin.textContent = 0;
-    divChrono.appendChild(spanMin);
-    divChrono.innerHTML += ':'
-    //On crée un element secondes pour modifier plus facilement
-    var spanSec = document.createElement("span");
-    spanSec.id = "secondes";
-    spanSec.textContent = "00";
-    divChrono.appendChild(spanSec);
     //On crée l'élement span qui contiendra le nombre de drapeau
     var spanElt = document.createElement("span");
     spanElt.id = "flag_restants";
@@ -83,10 +69,13 @@ function initCarte(tailleCarte, nbBombes) {
     document.getElementById("nbBombesRestantes").textContent = nbBombes;
     var pElt = document.createElement("p");
     pElt.id = "text_confirm";
+    document.getElementById("nbClics").textContent = 0;
     document.getElementById("grilleDem").appendChild(pElt);
-    document.getElementById("grilleDem").appendChild(divChrono);
     document.getElementById("grilleDem").appendChild(divElt);
-    document.getElementById("grilleDem").appendChild(tableElt);    
+    document.getElementById("grilleDem").appendChild(tableElt);
+    //On commence à gerer les clics
+    demarrerInterval();
+    chronoReset();
     
 }
 //fonction qui compte le nombre de bombes voisines à une certaines case
@@ -175,12 +164,18 @@ function getVoisins(indice, tailleCarte, estTotal) {
 //Fonction qui regarde si il y a un clic ou non
 function listener() {
     var tableElt = document.querySelector("table");
+    var nbClics = Number(document.getElementById("nbClics").textContent);
     //Clic gauche
-    tableElt.addEventListener("click", gestionClic);    
+    tableElt.addEventListener("click", gestionClic);
+
+    if (nbClics === 1) {
+        chronoStart();
+        document.getElementById("nbClics").textContent++;
+    }
 
     
 }
-
+//Fonction qui gère le clic qui vient d'être effectué
 function gestionClic(e) {
     e.preventDefault();
     var tailleCarte = document.querySelector("table").getAttribute("data-taille");
@@ -227,7 +222,7 @@ function gestionClic(e) {
         }
     }
 }
-
+//Fonction de fin de partie qui affiche les bombes si la partie est perdue et les drapeau si la partie est gagnée
 function afficheTout(estPerdu, tailleCarte) {
     for (var i = 0; i < tailleCarte * tailleCarte; i++) {
         var cellElt = document.getElementById(i);
@@ -244,9 +239,11 @@ function afficheTout(estPerdu, tailleCarte) {
             cellElt.src = "img/demineur_" + nbBombes + ".jpg";
         }
     }
-    clearInterval(listener);
-}
+    clearInterval(intervalListener);
+    chronoStop();
 
+}
+//Fonction qui affiche les voisins si ceux-ci ne présentent pas de bombes
 function afficheVoisins(tailleCarte, indice, caseVisitees) {
     var voisins = getVoisins(indice, tailleCarte, true);
     for (var i = 0; i < voisins.length; i++) {
@@ -266,7 +263,11 @@ function afficheVoisins(tailleCarte, indice, caseVisitees) {
 
     }
 }
+function demarrerInterval() {
+    //On utilise une variable globale pour permettre de l'utiliser partout
+    intervalListener = setInterval(listener, 1000);
+}
 //On lance une partie de base
 initCarte(15,25);
 //On lance un interval pour gérer les clics
-var intervalListener = setInterval(listener, 1000);
+demarrerInterval();

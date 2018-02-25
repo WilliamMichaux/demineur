@@ -26,7 +26,8 @@ p {
     text-align: center;
     font-size: 1.5em;
     font-family: 'Josefin Sans';
-    margin-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: -30px;
 }
 
 /*Style pour les boutons de difficultés*/
