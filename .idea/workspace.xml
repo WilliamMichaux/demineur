@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="05b277a3-7ea2-4b5c-8da8-926d239e06d8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/js/chrono.js" afterPath="$PROJECT_DIR$/js/chrono.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,8 +14,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -23,6 +23,35 @@
               <folding>
                 <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#1390#1397#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chrono.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/chrono.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demineur.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/demineur.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1241">
+              <caret line="77" column="18" lean-forward="false" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+              <folding>
+                <element signature="n#!!block;n#Case#0" expanded="false" />
+                <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
+                <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
+                <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+                <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+                <element signature="n#!!block;n#afficheTout#0" expanded="false" />
+                <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
+                <element signature="n#!!block;n#demarrerInterval#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,9 +83,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/js/chrono.js" />
         <option value="$PROJECT_DIR$/js/demineur.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/chrono.js" />
       </list>
     </option>
   </component>
@@ -107,8 +136,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -116,7 +145,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../scores_info" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -232,16 +261,17 @@
       <workItem from="1519486842298" duration="43000" />
       <workItem from="1519489109825" duration="122000" />
       <workItem from="1519566414404" duration="6515000" />
-      <workItem from="1519573675371" duration="156000" />
+      <workItem from="1519573675371" duration="564000" />
+      <workItem from="1519650834226" duration="101000" />
+      <workItem from="1520603105148" duration="336000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7085000" />
+    <option name="totallyTimeSpent" value="7930000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="0" width="1928" height="1044" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1920" height="1040" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.08229167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -285,6 +315,53 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1390#1397#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chrono.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/demineur.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="77" column="18" lean-forward="false" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!block;n#Case#0" expanded="false" />
+            <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
+            <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
+            <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="n#!!block;n#afficheTout#0" expanded="false" />
+            <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#demarrerInterval#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#1390#1397#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -304,7 +381,9 @@
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
             <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#demarrerInterval#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -351,29 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/chrono.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="26" lean-forward="false" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/demineur.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="77" column="18" lean-forward="false" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!block;n#Case#0" expanded="false" />
-            <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
-            <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
-            <element signature="n#!!block;n#getVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
-            <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -381,6 +437,31 @@
           <folding>
             <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#1390#1397#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/chrono.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="23" lean-forward="false" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/demineur.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="77" column="18" lean-forward="false" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!block;n#Case#0" expanded="false" />
+            <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
+            <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
+            <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="n#!!block;n#afficheTout#0" expanded="false" />
+            <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#demarrerInterval#0" expanded="false" />
           </folding>
         </state>
       </provider>

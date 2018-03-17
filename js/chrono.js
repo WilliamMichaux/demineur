@@ -25,7 +25,6 @@ function chrono() {
 
 function chronoStart() {
     start = new Date();
-    console.log("coucou");
     chrono();
 }
 
