@@ -33,7 +33,7 @@ function initCarte(tailleCarte, nbBombes) {
             carte[iCase].nbBombesVoisines = nbBombesVois;
         }
     }
-    
+
     //On crée l'élement table qui va recueillir les infos de la grille et qui permet de l'afficher
     var tableElt = document.createElement("table");
     //On crée un attribut pour la carte en indiquant la taille de celle ci
@@ -50,7 +50,7 @@ function initCarte(tailleCarte, nbBombes) {
     //On ajoute les différents éléments au div
     divElt.appendChild(spanElt);
     divElt.appendChild(flagElt);
-    
+
     var cpt = 0;
     while (cpt < tailleCarte * tailleCarte) {
         var ligneElt = document.createElement("tr");
@@ -76,7 +76,7 @@ function initCarte(tailleCarte, nbBombes) {
     //On commence à gerer les clics
     demarrerInterval();
     chronoReset();
-    
+
 }
 //fonction qui compte le nombre de bombes voisines à une certaines case
 function compteNbBombes(carte, indice, tailleCarte) {
@@ -173,7 +173,7 @@ function listener() {
         document.getElementById("nbClics").textContent++;
     }
 
-    
+
 }
 //Fonction qui gère le clic qui vient d'être effectué
 function gestionClic(e) {
@@ -187,7 +187,7 @@ function gestionClic(e) {
     var idElt = e.target.id;
     var regexInconnu = /.demineur_inconnu./;
     var regexFlag = /.flag./;
-    if (e.ctrlKey && document.getElementById("nbBombesRestantes").textContent > 0) { //Clic gauche + ctrl = ajout/suppression du drapeau       
+    if (e.ctrlKey && document.getElementById("nbBombesRestantes").textContent > 0) { //Clic gauche + ctrl = ajout/suppression du drapeau
         if (regexInconnu.test(srcElt) && document.getElementById("flag_restants").textContent > 0) {
             e.target.src = "img/flag.jpg";
             document.getElementById("flag_restants").textContent--;
@@ -195,7 +195,7 @@ function gestionClic(e) {
                 document.getElementById("nbBombesRestantes").textContent--;
             }
             if (document.getElementById("nbBombesRestantes").textContent == 0) {
-                document.getElementById("text_confirm").textContent = "GG c'est gagné !!";
+                document.getElementById("text_confirm").textContent = "C'est gagné !!";
                 afficheTout(false, tailleCarte);
             }
         } else if (regexFlag.test(srcElt)) {
@@ -209,7 +209,7 @@ function gestionClic(e) {
         var nbBombes = e.target.alt;
         if (!regexFlag.test(srcElt)) {
             if (nbBombes == -1) {
-                document.getElementById("text_confirm").textContent = "Perdu !!";
+                document.getElementById("text_confirm").textContent = "Perdu !! Une autre partie ?";
                 afficheTout(true, tailleCarte);
             } else if (nbBombes == 0) {
                 e.target.src = "img/demineur_rien.jpg";
@@ -229,7 +229,7 @@ function afficheTout(estPerdu, tailleCarte) {
         var nbBombes = cellElt.alt;
         if (nbBombes == -1) {
             if (estPerdu) {
-                cellElt.src = "img/demineur_bomb.jpg";   
+                cellElt.src = "img/demineur_bomb.jpg";
             } else {
                 cellElt.src = "img/flag.jpg";
             }
@@ -266,6 +266,10 @@ function afficheVoisins(tailleCarte, indice, caseVisitees) {
 function demarrerInterval() {
     //On utilise une variable globale pour permettre de l'utiliser partout
     intervalListener = setInterval(listener, 1000);
+}
+//Juste un fondu pour l'élément qui indique comment jouer
+function fadeOut() {
+    $(".alert").fadeOut(1500);
 }
 //On lance une partie de base
 initCarte(15,25);

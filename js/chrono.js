@@ -1,4 +1,3 @@
-var startTime;
 var start = 0;
 var end = 0;
 var diff = 0;
@@ -19,7 +18,7 @@ function chrono() {
         sec = "0" + sec;
     }
 
-    document.getElementById("chrono").innerHTML = min + ":" + sec;
+    $("#chrono").text(min + ":" + sec);
     timerID = setTimeout("chrono()",10);
 }
 
@@ -34,6 +33,6 @@ function chronoStop() {
 
 function chronoReset() {
     clearTimeout(timerID);
-    document.getElementById("chrono").innerHTML = "00:00";
+    $("#chrono").text("00:00");
 
 }

@@ -32,24 +32,24 @@ p {
 
 /*Style pour les boutons de difficultés*/
 .button {
-  padding: 15px 25px;
-  font-size: 20px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #0b648f;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+    padding: 15px 25px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #0b648f;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
 
 .button:hover {background-color: #2A80A9}
 
 .button:active {
-  background-color: #2A80A9;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    background-color: #2A80A9;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 /* The alert message box */
@@ -61,7 +61,7 @@ p {
     position: fixed;
     bottom: 15px;
     right: 15px;
-    
+
 }
 
 /* The close button */
