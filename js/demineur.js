@@ -15,6 +15,18 @@ function initCarte(tailleCarte, nbBombes) {
         var nouvelleCase = new Case(0);
         carte.push(nouvelleCase);
     }
+    boutonSelec = $("#listDifficulte")
+    switch (tailleCarte) {
+        case 10:
+            boutonSelec.text("Débutant");
+            break;
+        case 15:
+            boutonSelec.text("Intermédiaire");
+            break;
+        case  20:
+            boutonSelec.text("Expert");
+            break;
+    }
     //On ajoute le nombre de bombes nécessaires aléatoirement dans la carte
     var iBombe = 0;
     while (iBombe < nbBombes) {
@@ -73,8 +85,6 @@ function initCarte(tailleCarte, nbBombes) {
     document.getElementById("grilleDem").appendChild(pElt);
     document.getElementById("grilleDem").appendChild(divElt);
     document.getElementById("grilleDem").appendChild(tableElt);
-    //On commence à gerer les clics
-    demarrerInterval();
     chronoReset();
 
 }
@@ -187,7 +197,7 @@ function gestionClic(e) {
     var idElt = e.target.id;
     var regexInconnu = /.demineur_inconnu./;
     var regexFlag = /.flag./;
-    if (e.ctrlKey && document.getElementById("nbBombesRestantes").textContent > 0) { //Clic gauche + ctrl = ajout/suppression du drapeau
+    if (document.getElementById("nbBombesRestantes").textContent > 0) { //Clic gauche + ctrl = ajout/suppression du drapeau
         if (regexInconnu.test(srcElt) && document.getElementById("flag_restants").textContent > 0) {
             e.target.src = "img/flag.jpg";
             document.getElementById("flag_restants").textContent--;
@@ -263,15 +273,28 @@ function afficheVoisins(tailleCarte, indice, caseVisitees) {
 
     }
 }
-function demarrerInterval() {
-    //On utilise une variable globale pour permettre de l'utiliser partout
-    intervalListener = setInterval(listener, 1000);
-}
-//Juste un fondu pour l'élément qui indique comment jouer
-function fadeOut() {
-    $(".alert").fadeOut(1500);
+function gestionClickBtn() {
+    var difficulte = $("#listDifficulte").text();
+    if (difficulte === "Intermédiaire") {
+        initCarte(15,25);
+    } else if(difficulte === "Débutant") {
+        initCarte(10,10);
+    } else {
+        initCarte(20,75);
+    }
 }
 //On lance une partie de base
 initCarte(15,25);
-//On lance un interval pour gérer les clics
-demarrerInterval();
+
+$(window).ready(function () {
+    $("#myModal").modal('show');
+    $('[data-toggle="popover"]').popover();
+
+});
+
+$("img").contextmenu(function (e) {
+
+});
+
+$("img").click(function (e) {
+});
