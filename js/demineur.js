@@ -86,6 +86,7 @@ function initCarte(tailleCarte, nbBombes) {
     document.getElementById("grilleDem").appendChild(divElt);
     document.getElementById("grilleDem").appendChild(tableElt);
     chronoReset();
+    gestionClic();
 
 }
 //fonction qui compte le nombre de bombes voisines à une certaines case
@@ -171,52 +172,48 @@ function getVoisins(indice, tailleCarte, estTotal) {
 
     return caseVoisines;
 }
-//Fonction qui regarde si il y a un clic ou non
-function listener() {
-    var tableElt = document.querySelector("table");
-    var nbClics = Number(document.getElementById("nbClics").textContent);
-    //Clic gauche
-    tableElt.addEventListener("click", gestionClic);
-
-    if (nbClics === 1) {
-        chronoStart();
-        document.getElementById("nbClics").textContent++;
-    }
-
-
-}
 //Fonction qui gère le clic qui vient d'être effectué
 function gestionClic(e) {
-    e.preventDefault();
-    var tailleCarte = document.querySelector("table").getAttribute("data-taille");
-    var nbClicsElt = document.getElementById("nbClics");
-    tailleCarte = Number(tailleCarte);
-    nbClicsElt.textContent++;
-    var bouton = e.buttons;
-    var srcElt = e.target.src;
-    var idElt = e.target.id;
-    var regexInconnu = /.demineur_inconnu./;
-    var regexFlag = /.flag./;
-    if (document.getElementById("nbBombesRestantes").textContent > 0) { //Clic gauche + ctrl = ajout/suppression du drapeau
-        if (regexInconnu.test(srcElt) && document.getElementById("flag_restants").textContent > 0) {
-            e.target.src = "img/flag.jpg";
-            document.getElementById("flag_restants").textContent--;
-            if (e.target.alt == -1) {
-                document.getElementById("nbBombesRestantes").textContent--;
-            }
-            if (document.getElementById("nbBombesRestantes").textContent == 0) {
-                document.getElementById("text_confirm").textContent = "C'est gagné !!";
-                afficheTout(false, tailleCarte);
-            }
-        } else if (regexFlag.test(srcElt)) {
-            e.target.src = "img/demineur_inconnu.jpg";
-            document.getElementById("flag_restants").textContent++;
-            if (e.target.alt == -1) {
-                document.getElementById("nbBombesRestantes").textContent++;
+    $("img").contextmenu(function (e) {
+        e.preventDefault();
+        var tailleCarte = document.querySelector("table").getAttribute("data-taille");
+        var nbClicsElt = document.getElementById("nbClics");
+        tailleCarte = Number(tailleCarte);
+        nbClicsElt.textContent++;
+        var srcElt = e.target.src;
+        var regexInconnu = /.demineur_inconnu./;
+        var regexFlag = /.flag./;
+
+        if (document.getElementById("nbBombesRestantes").textContent > 0) { //Clic gauche + ctrl = ajout/suppression du drapeau
+            if (regexInconnu.test(srcElt) && document.getElementById("flag_restants").textContent > 0) {
+                e.target.src = "img/flag.jpg";
+                document.getElementById("flag_restants").textContent--;
+                if (e.target.alt == -1) {
+                    document.getElementById("nbBombesRestantes").textContent--;
+                }
+                if (document.getElementById("nbBombesRestantes").textContent == 0) {
+                    document.getElementById("text_confirm").textContent = "C'est gagné !!";
+                    afficheTout(false, tailleCarte);
+                }
+            } else if (regexFlag.test(srcElt)) {
+                e.target.src = "img/demineur_inconnu.jpg";
+                document.getElementById("flag_restants").textContent++;
+                if (e.target.alt == -1) {
+                    document.getElementById("nbBombesRestantes").textContent++;
+                }
             }
         }
-    } else {
+    });
+    $("img").click(function (e) {
+        var tailleCarte = document.querySelector("table").getAttribute("data-taille");
+        var nbClicsElt = document.getElementById("nbClics");
+        tailleCarte = Number(tailleCarte);
+        nbClicsElt.textContent++;
+        var srcElt = e.target.src;
+        var idElt = e.target.id;
+        var regexFlag = /.flag./;
         var nbBombes = e.target.alt;
+
         if (!regexFlag.test(srcElt)) {
             if (nbBombes == -1) {
                 document.getElementById("text_confirm").textContent = "Perdu !! Une autre partie ?";
@@ -230,7 +227,7 @@ function gestionClic(e) {
                 e.target.src = "img/demineur_" + nbBombes + ".jpg";
             }
         }
-    }
+    });
 }
 //Fonction de fin de partie qui affiche les bombes si la partie est perdue et les drapeau si la partie est gagnée
 function afficheTout(estPerdu, tailleCarte) {
@@ -249,7 +246,6 @@ function afficheTout(estPerdu, tailleCarte) {
             cellElt.src = "img/demineur_" + nbBombes + ".jpg";
         }
     }
-    clearInterval(intervalListener);
     chronoStop();
 
 }
@@ -285,16 +281,8 @@ function gestionClickBtn() {
 }
 //On lance une partie de base
 initCarte(15,25);
-
 $(window).ready(function () {
     $("#myModal").modal('show');
     $('[data-toggle="popover"]').popover();
 
-});
-
-$("img").contextmenu(function (e) {
-
-});
-
-$("img").click(function (e) {
 });
