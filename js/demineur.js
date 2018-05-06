@@ -286,3 +286,8 @@ $(window).ready(function () {
     $("#myModal").modal('show');
     $('[data-toggle="popover"]').popover();
 });
+
+/** TODO : Rendre code plus propre
+ *       : Ajouter popup pour la difficulté
+ *       : Regarder aux redondances
+ */

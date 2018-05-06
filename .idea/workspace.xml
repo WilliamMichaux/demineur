@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05b277a3-7ea2-4b5c-8da8-926d239e06d8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/js/demineur.js" afterPath="$PROJECT_DIR$/js/demineur.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -34,8 +31,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="23" column="74" lean-forward="false" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
+                <state relative-caret-position="51">
+                  <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
                   <folding>
                     <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
@@ -70,8 +67,8 @@
           <file leaf-file-name="demineur.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/demineur.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="286" column="43" lean-forward="false" selection-start-line="286" selection-start-column="43" selection-end-line="286" selection-end-column="43" />
+                <state relative-caret-position="595">
+                  <caret line="291" column="35" lean-forward="false" selection-start-line="291" selection-start-column="35" selection-end-line="291" selection-end-column="35" />
                   <folding>
                     <element signature="n#!!block;n#Case#0" expanded="false" />
                     <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
@@ -118,9 +115,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/js/chrono.js" />
-        <option value="$PROJECT_DIR$/js/demineur.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/demineur.js" />
       </list>
     </option>
   </component>
@@ -317,12 +314,12 @@
       <workItem from="1525436727671" duration="752000" />
       <workItem from="1525438389094" duration="207000" />
       <workItem from="1525441970598" duration="1896000" />
-      <workItem from="1525612110749" duration="4205000" />
+      <workItem from="1525612110749" duration="4601000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53375000" />
+    <option name="totallyTimeSpent" value="53771000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="6" />
@@ -895,10 +892,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="37" lean-forward="false" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/demineur.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="286" column="43" lean-forward="false" selection-start-line="286" selection-start-column="43" selection-end-line="286" selection-end-column="43" />
+        <state relative-caret-position="595">
+          <caret line="291" column="35" lean-forward="false" selection-start-line="291" selection-start-column="35" selection-end-line="291" selection-end-column="35" />
           <folding>
             <element signature="n#!!block;n#Case#0" expanded="false" />
             <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
@@ -910,24 +925,6 @@
             <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="37" lean-forward="false" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="23" column="74" lean-forward="false" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
