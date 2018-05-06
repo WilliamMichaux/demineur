@@ -85,3 +85,7 @@ h1 {
     position: relative;
     top : 100px;
 }
+
+*{
+    font-family: 'Rubik', sans-serif;
+}

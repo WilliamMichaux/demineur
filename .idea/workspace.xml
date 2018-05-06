@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="05b277a3-7ea2-4b5c-8da8-926d239e06d8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/js/demineur.js" afterPath="$PROJECT_DIR$/js/demineur.js" />
     </list>
@@ -27,23 +28,32 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.48638344">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="406">
-                  <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+                <state relative-caret-position="390">
+                  <caret line="23" column="74" lean-forward="false" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
                   <folding>
-                    <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                     <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="chrono.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/css/style.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1513">
+                  <caret line="89" column="37" lean-forward="false" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="chrono.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/chrono.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
@@ -56,12 +66,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="demineur.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/demineur.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="782">
-                  <caret line="210" column="33" lean-forward="false" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
+                <state relative-caret-position="510">
+                  <caret line="286" column="43" lean-forward="false" selection-start-line="286" selection-start-column="43" selection-end-line="286" selection-end-column="43" />
                   <folding>
                     <element signature="n#!!block;n#Case#0" expanded="false" />
                     <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
@@ -69,10 +79,10 @@
                     <element signature="e#860#1126#0" expanded="false" />
                     <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
                     <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+                    <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+                    <element signature="e#7456#8824#0" expanded="false" />
                     <element signature="n#!!block;n#afficheTout#0" expanded="false" />
                     <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-                    <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-                    <element signature="e#11746#11827#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -107,10 +117,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/chrono.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/demineur.js" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -125,8 +135,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1920" />
-    <option name="width" value="1920" />
+    <option name="x" value="964" />
+    <option name="width" value="956" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
@@ -307,16 +317,18 @@
       <workItem from="1525436727671" duration="752000" />
       <workItem from="1525438389094" duration="207000" />
       <workItem from="1525441970598" duration="1896000" />
+      <workItem from="1525612110749" duration="4205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49170000" />
+    <option name="totallyTimeSpent" value="53375000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="0" width="1920" height="1040" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1040" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16302083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10572917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -353,7 +365,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -369,10 +381,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -382,7 +394,6 @@
         <state relative-caret-position="221">
           <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -399,10 +410,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -412,7 +423,6 @@
         <state relative-caret-position="391">
           <caret line="59" column="30" lean-forward="false" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -429,10 +439,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -442,7 +452,6 @@
         <state relative-caret-position="918">
           <caret line="66" column="72" lean-forward="false" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="72" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -466,10 +475,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -479,7 +488,6 @@
         <state relative-caret-position="561">
           <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -503,10 +511,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -516,7 +524,6 @@
         <state relative-caret-position="459">
           <caret line="27" column="91" lean-forward="false" selection-start-line="27" selection-start-column="91" selection-end-line="27" selection-end-column="91" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -540,10 +547,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -567,7 +574,6 @@
         <state relative-caret-position="51">
           <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -592,10 +598,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -612,7 +618,6 @@
         <state relative-caret-position="51">
           <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -644,10 +649,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -664,7 +669,6 @@
         <state relative-caret-position="51">
           <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -696,10 +700,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -709,7 +713,6 @@
         <state relative-caret-position="748">
           <caret line="44" column="7" lean-forward="false" selection-start-line="44" selection-start-column="7" selection-end-line="44" selection-end-column="7" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -727,7 +730,6 @@
         <state relative-caret-position="119">
           <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -752,10 +754,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -765,7 +767,6 @@
         <state relative-caret-position="119">
           <caret line="7" column="57" lean-forward="false" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -790,10 +791,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -803,7 +804,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -814,7 +814,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
@@ -831,10 +830,10 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -888,24 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-          <folding>
-            <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/chrono.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -916,8 +897,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/demineur.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="210" column="33" lean-forward="false" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
+        <state relative-caret-position="510">
+          <caret line="286" column="43" lean-forward="false" selection-start-line="286" selection-start-column="43" selection-end-line="286" selection-end-column="43" />
           <folding>
             <element signature="n#!!block;n#Case#0" expanded="false" />
             <element signature="n#!!block;n#getRandomInt#0" expanded="false" />
@@ -925,10 +906,28 @@
             <element signature="e#860#1126#0" expanded="false" />
             <element signature="n#!!block;n#compteNbBombes#0" expanded="false" />
             <element signature="n#!!block;n#getVoisins#0" expanded="false" />
+            <element signature="n#!!block;n#gestionClic#0" expanded="false" />
+            <element signature="e#7456#8824#0" expanded="false" />
             <element signature="n#!!block;n#afficheTout#0" expanded="false" />
             <element signature="n#!!block;n#afficheVoisins#0" expanded="false" />
-            <element signature="n#!!block;n#gestionClickBtn#0" expanded="false" />
-            <element signature="e#11746#11827#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="37" lean-forward="false" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="23" column="74" lean-forward="false" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

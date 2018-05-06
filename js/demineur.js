@@ -81,7 +81,7 @@ function initCarte(tailleCarte, nbBombes) {
     document.getElementById("nbBombesRestantes").textContent = nbBombes;
     var pElt = document.createElement("p");
     pElt.id = "text_confirm";
-    document.getElementById("nbClics").textContent = 0;
+    $("#nbClics").text(0);
     document.getElementById("grilleDem").appendChild(pElt);
     document.getElementById("grilleDem").appendChild(divElt);
     document.getElementById("grilleDem").appendChild(tableElt);
@@ -177,9 +177,7 @@ function gestionClic(e) {
     $("img").contextmenu(function (e) {
         e.preventDefault();
         var tailleCarte = document.querySelector("table").getAttribute("data-taille");
-        var nbClicsElt = document.getElementById("nbClics");
         tailleCarte = Number(tailleCarte);
-        nbClicsElt.textContent++;
         var srcElt = e.target.src;
         var regexInconnu = /.demineur_inconnu./;
         var regexFlag = /.flag./;
@@ -205,10 +203,13 @@ function gestionClic(e) {
         }
     });
     $("img").click(function (e) {
+        var clicElt = document.getElementById("nbClics");
+        clicElt.textContent++;
+        if (clicElt.textContent == 1) {
+            chronoStart();
+        }
         var tailleCarte = document.querySelector("table").getAttribute("data-taille");
-        var nbClicsElt = document.getElementById("nbClics");
         tailleCarte = Number(tailleCarte);
-        nbClicsElt.textContent++;
         var srcElt = e.target.src;
         var idElt = e.target.id;
         var regexFlag = /.flag./;
@@ -284,5 +285,4 @@ initCarte(15,25);
 $(window).ready(function () {
     $("#myModal").modal('show');
     $('[data-toggle="popover"]').popover();
-
 });
