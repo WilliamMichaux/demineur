@@ -1,8 +1,21 @@
-
 <!doctype html>
 
-<html>
+<?php
+session_start();
+    $compteur = fopen("compteurVue.txt", 'r+');
+    $compte = fgets($compteur);
 
+    if(!isset($_SESSION['visite']))
+    {
+        $_SESSION['visite'] = 'estVisite';
+        $compte++;
+        fseek($compteur,0);
+        fputs($compteur, $compte);
+    }
+    fclose($compteur);
+?>
+
+<html>
 <head>
     <title>Démineur</title>
     <meta charset="UTF-8">
@@ -31,6 +44,7 @@
         </li>
     </ul>
 </nav>
+
 <h1>Démineur <span class="badge badge-secondary">V2</span></h1>
 
 
@@ -78,9 +92,10 @@
         </div>
     </div>
 </div>
+
+
 </body>
 <script src="js/chrono.js"></script>
 <script src="js/demineur.js"></script>
-
 
 </html>
