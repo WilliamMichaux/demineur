@@ -8,7 +8,7 @@ session_start();
     if(!isset($_SESSION['visite']))
     {
         $_SESSION['visite'] = 'estVisite';
-        $compte++;
+        $compte += 1;
         fseek($compteur,0);
         fputs($compteur, $compte);
     }
@@ -92,8 +92,6 @@ session_start();
         </div>
     </div>
 </div>
-
-
 </body>
 <script src="js/chrono.js"></script>
 <script src="js/demineur.js"></script>
