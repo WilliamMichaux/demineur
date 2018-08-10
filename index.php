@@ -2,17 +2,17 @@
 
 <?php
 session_start();
-    $compteur = fopen("compteurVue.txt", 'r+');
-    $compte = fgets($compteur);
+$compteur = fopen("compteurVue.txt", 'r+');
+$compte = fgets($compteur);
 
-    if(!isset($_SESSION['visite']))
-    {
-        $_SESSION['visite'] = 'estVisite';
-        $compte += 1;
-        fseek($compteur,0);
-        fputs($compteur, $compte);
-    }
-    fclose($compteur);
+if(!isset($_SESSION['visite']))
+{
+    $_SESSION['visite'] = 'estVisite';
+    $compte += 1;
+    fseek($compteur,0);
+    fputs($compteur, $compte);
+}
+fclose($compteur);
 ?>
 
 <html>
@@ -40,12 +40,12 @@ session_start();
             <a class="nav-link" href="http://www.william-michaux.be/regles">Règles</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled" href="#" data-toggle="popover" data-trigger="hover" data-content="Ça arrive bientôt !">Contact</a>
+            <a class="nav-link" href="http://www.william-michaux.be/contact">Contact</a>
         </li>
     </ul>
 </nav>
 
-<h1>Démineur <span class="badge badge-secondary">V2</span></h1>
+<h1>Démineur</h1>
 
 
 <span id="nbBombesRestantes" hidden></span>
@@ -93,6 +93,8 @@ session_start();
     </div>
 </div>
 </body>
+
+<!-- Appel des script javaScript -->
 <script src="js/chrono.js"></script>
 <script src="js/demineur.js"></script>
 
