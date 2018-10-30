@@ -282,6 +282,7 @@ function gestionClickBtn() {
 }
 //On lance une partie de base
 initCarte(15,25);
+
 $(window).ready(function () {
     $("#myModal").modal('show');
     $('[data-toggle="popover"]').popover();

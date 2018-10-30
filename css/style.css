@@ -30,12 +30,6 @@ h1 {
     font-style: oblique;
     color: #e21737;
 }
-.badge-secondary {
-    background-color: #0b648f;
-    color: #fdbb30;
-    position: relative;
-    bottom: 2px;
-}
 
 .btn-primary {
     background-color: #0b648f;
