@@ -1,0 +1,209 @@
+td {
+    border: 1px solid black;
+    height: 30px;
+    width: 30px;
+    border-radius: 10%;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    font-size: 1.3em;
+    background-color: lightgray;
+}
+
+table {
+    border-collapse: collapse; 
+}
+
+.un {
+    color:blue;
+    background-color: white;
+}
+
+.deux{
+    background-color: white;
+    color:red;
+}
+
+.trois {
+    background-color: white;
+    color:green;
+}
+
+.quatre {
+    background-color: white;
+    color: purple;
+}
+
+.cinq {
+    background-color: white;
+    color: gold;
+}
+
+.six {
+    background-color: white;
+    color: olive;
+}
+
+
+.interro {
+    background-color: white;
+    color:gray;
+}
+
+.flag {
+    background-color: white;
+    color:green;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0,0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    text-align: center;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    font-family: 'Righteous', cursive;
+    font-size: 2.4em;
+    width: 50%;
+    height: 350px;
+    z-index: 2;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    z-index: 3;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boutton {
+    color: white;
+    font-size: 0.6em;
+    width: 25%;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3399ff;
+    transition: 0.3s; 
+}
+
+.boutton:hover {
+    cursor: pointer;
+    position: relative;
+    background-color: #0073e6;
+}
+
+.confetti {
+    position: relative;
+    top: -20px;
+    margin: 0px;
+}
+
+#confetti-canvas {
+    height: 110%;
+    width: 90%;
+    margin:0px;
+}
+
+#texte, #btnRejouer {
+    position: relative;
+    top:-340px;
+}
+
+#info {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    border: 3px solid black;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px; 
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#preset {
+    display: flex;
+    justify-content: center;
+}
+
+#preset p {
+    margin: 30px 15px;
+    font-size: 1.2em;
+    font-family: 'Righteous', cursive;
+}
+
+#lancementJeu {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+input {
+    width: 60px;
+}
+
+form {
+    border: solid black 1px;
+    text-align: left;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    font-family: 'Righteous', cursive;
+}
+
+#pause {
+    width: 100%;
+}
+
+
+/***********************************************************************************
+                                    SLIDER
+***********************************************************************************/
+
+.slider{
+    width: 50%;    
+}
+
+.slidecontainer input{
+    position: relative;
+    top: 5px;
+}
+
+#nbBombes {
+    font-family: arial;
+}
+
+#jouer {
+    position: relative;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1.2em;
+}
